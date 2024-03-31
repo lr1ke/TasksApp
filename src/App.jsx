@@ -16,7 +16,6 @@ function App() {
   const [count, setCount] = useState(0)
   const [data, setData] = useState([]);
   const [recentData, setRecentData] = useState([]);
-  const [showMore, setShowMore] = useState(false); 
   const [completedTasks, setCompletedTasks] = useState([]);
   const [favorite, setFavorite] = useState(false); 
 
@@ -64,10 +63,6 @@ function App() {
     console.log(completedTasks);
   }
 
-  const handleMore = () => {
-    setShowMore(!showMore);
-  }
-
   const handleRemove = (taskId) => { 
     setData(data.filter((task) => task.key !== taskId));
   }
@@ -89,10 +84,10 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<SharedLayout />} >
-        <Route index element={<Home recentData={recentData} handleLike={handleLike} fetchRecentData={fetchRecentData} handleMore={handleMore} showMore={showMore}/>} />
-        <Route path="todo" element={<ToDo data={data} handleRemove={handleRemove} handleDone={handleDone} handleMore={handleMore} />} />
+        <Route index element={<Home recentData={recentData} handleLike={handleLike} fetchRecentData={fetchRecentData}/>} />
+        <Route path="todo" element={<ToDo data={data} handleRemove={handleRemove} handleDone={handleDone} />} />
         <Route path="completed" element={<Completed completedTasks={completedTasks} favorite={favorite} handleFav={handleFav}/>} />
-        <Route path="details/:id" element={<Details />} />
+        <Route path="details/:taskId" element={<Details data={data} recentData={recentData} />} />
         <Route path='*' element={<Error />} />
       </Route> 
     </Routes>

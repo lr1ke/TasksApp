@@ -1,5 +1,5 @@
-
-const ToDo = ({ data, handleRemove, handleDone, handleMore, showMore }) => {
+import { Link } from 'react-router-dom';
+const ToDo = ({ data, handleRemove, handleDone }) => {
     return (
 <>
         <h3>My To Do List</h3>
@@ -16,11 +16,11 @@ const ToDo = ({ data, handleRemove, handleDone, handleMore, showMore }) => {
               <button onClick={() => handleDone(item.key)}>
                {item.status ? 'Done' : 'To Do'}
               </button>
-              <button onClick={handleMore}>{showMore ? 'Hide' : 'Show'} details</button>
-
+              <button><Link to={`/details/${item.key}`}>Details</Link></button>
             </div>
             )
         })}
+
 </>
 
     )

@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 const Completed = ({ completedTasks, handleFav, favorite }) => {
     return (
         <> 
@@ -13,6 +13,8 @@ const Completed = ({ completedTasks, handleFav, favorite }) => {
             </div>
             )
         })}
+        <Link to="/todo">back</Link> 
+
         </>
     )
 }
