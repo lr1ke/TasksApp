@@ -3,10 +3,16 @@ const Home = ({ recentData, handleLike, fetchRecentData }) => {
     return (
         <> 
               
-          <div className="card">
-          <p>Keep Busy. Why not ...</p>
-          <h4>{recentData.activity} ?</h4>
+          <div >
+          <h1>Keep Busy
+          </h1><br></br>
+          <div className="wrapper">
+
+          <h6>Why not...</h6><br></br>
+          <h4>{recentData.activity}?</h4>
           </div>
+          </div>
+          <br></br>
           <div>
           <button onClick={() => handleLike(recentData)}>Like</button>
           <button onClick={fetchRecentData}>New</button>

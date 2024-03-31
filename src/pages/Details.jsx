@@ -11,8 +11,10 @@ const Details = ({ data, recentData }) => {
         <> 
         
             <div key={taskId}>
-                <h3>Task Details</h3>
-                <p>{taskobj.activity}</p>
+                <h1>Task Details</h1><br></br>
+                <div className='wrapper'>
+
+                <h4 >{taskobj.activity}</h4>
 
                 <ul>
                     <li>Type: {taskobj.type}</li>
@@ -20,6 +22,7 @@ const Details = ({ data, recentData }) => {
                     <li>Participants: {taskobj.participants}</li>
                     <li>Price: {taskobj.price}</li>
                 </ul>
+                </div>
             </div>
             {taskobj === recentData ? <Link to="/">back</Link> : <Link to="/todo">back</Link> }
 
