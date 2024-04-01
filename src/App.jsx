@@ -5,6 +5,7 @@ import './App.css'
 import { Routes, Route, useParams, Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 import Home from './pages/Home'
 import ToDo from './pages/ToDo' 
 import Completed from './pages/Completed'
@@ -19,6 +20,7 @@ function App() {
   const [recentData, setRecentData] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
   const [favorite, setFavorite] = useState(false); 
+  const [showMessage, setShowMessage] = useState(false);
 
 
 
@@ -53,6 +55,10 @@ function App() {
             if(updatedTask.status === true){
               addToCompleted(updatedTask);
             }
+            setShowMessage(true); // Show message when task is marked as done 
+            setTimeout(() => {
+              setShowMessage(false);
+            }, 2000); // Hide message after 2 seconds
             return updatedTask;
       }
       return task;
@@ -60,7 +66,7 @@ function App() {
   };
 
   const addToCompleted = (item) => {
-    setCompletedTasks([...completedTasks, item]);
+    setCompletedTasks([item, ...completedTasks]);
     console.log(completedTasks);
   }
 
@@ -78,7 +84,13 @@ function App() {
     setFavorite(!favorite);
   }
 
-
+  const popUpMessage = ({ message }) => {
+    return (
+        <div className="popup-message">
+            <p>{message}</p>
+        </div>
+    );
+  };
   
   
   return (
@@ -86,7 +98,7 @@ function App() {
     <Routes>
       <Route path="/" element={<SharedLayout />} >
         <Route index element={<Home recentData={recentData} handleLike={handleLike} fetchRecentData={fetchRecentData}/>} />
-        <Route path="todo" element={<ToDo data={data} handleRemove={handleRemove} handleDone={handleDone} />} />
+        <Route path="todo" element={<ToDo popUpMessage={popUpMessage} showMessage={showMessage} data={data} handleRemove={handleRemove} handleDone={handleDone} />} />
         <Route path="completed" element={<Completed completedTasks={completedTasks} favorite={favorite} handleFav={handleFav}/>} />
         <Route path="details/:taskId" element={<Details data={data} recentData={recentData} />} />
         <Route path='*' element={<Error />} />
