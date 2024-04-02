@@ -41,6 +41,20 @@ body {
   /* font-family: fantasy; */
 }
 
+.overlay-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Adjust as needed */
+  height: 100%; /* Adjust as needed */
+  background-image: url('assets/dreamygirl.webp');
+  background-size: cover; /* Adjust as needed */
+  /* Add other styles as needed */
+}
+
+
+
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

@@ -1,10 +1,18 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faHeartBroken, faRotateRight, faInfoCircle, faEllipsisH, faTimes, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-const Home = ({ recentData, handleLike, fetchRecentData }) => {
+// import viteLogo from '../assets/dancer.png'
+// import reactLogo from '../assets/dancer.png'
+import '../App.css'
+
+
+const Home = ({ showMessage, popUpMessage, recentData, handleLike, fetchRecentData }) => {
     return (
         <> 
-              
+                    
+          {/* <img src={viteLogo} className="logo react" alt="React logo" />
+          <img src={reactLogo} className="logo react" alt="React logo" /> */}
+
           <div >
           <h1>Keep Busy
           </h1><br></br>
@@ -26,6 +34,8 @@ const Home = ({ recentData, handleLike, fetchRecentData }) => {
           <button onClick={fetchRecentData}><FontAwesomeIcon icon={faRotateRight} /></button>
           </div>
             <br></br>
+            {showMessage && popUpMessage({ message: 'Moved to ToDo' })}
+
         </>
     )
 }

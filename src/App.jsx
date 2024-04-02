@@ -19,7 +19,7 @@ function App() {
   const [data, setData] = useState([]);
   const [recentData, setRecentData] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
-  const [favorite, setFavorite] = useState(false); 
+  // const [favorite, setFavorite] = useState(false); 
   const [showMessage, setShowMessage] = useState(false);
 
 
@@ -44,14 +44,24 @@ function App() {
   const handleLike = (item) => {
     addStatus(item);
     setData([recentData, ...data]);
+    setShowMessage(true); // Show message when task is marked as done 
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 2000); // Hide message after 2 seconds
+
     fetchRecentData();
   }
 
+  const addStatus = (item) => {
+    return (
+      item.status = false
+    )
+  }
 
   const handleDone = (taskId) => {
     setData(data.map((task) => {
       if (task.key === taskId) {
-            const updatedTask =  {...task, status: !task.status, date: new Date().toLocaleDateString() };
+            const updatedTask =  {...task, status: !task.status, date: new Date().toLocaleDateString(), fave: false };
             if(updatedTask.status === true){
               addToCompleted(updatedTask);
             }
@@ -74,15 +84,22 @@ function App() {
     setData(data.filter((task) => task.key !== taskId));
   }
 
-  const addStatus = (item) => {
-    return (
-      item.status = false
-    )
-  }
 
-  const handleFav = () => {
-    setFavorite(!favorite);
+
+  const handleFave = (taskId) => {
+    setCompletedTasks(prevTasks => {
+      return prevTasks.map(task => {
+        if (task.key === taskId) {
+          return {
+            ...task,
+            fave: !task.fave
+          };
+        }
+        return task;
+      });
+    });
   }
+  
 
   const popUpMessage = ({ message }) => {
     return (
@@ -97,9 +114,9 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<SharedLayout />} >
-        <Route index element={<Home recentData={recentData} handleLike={handleLike} fetchRecentData={fetchRecentData}/>} />
+        <Route index element={<Home popUpMessage={popUpMessage} showMessage={showMessage} recentData={recentData} handleLike={handleLike} fetchRecentData={fetchRecentData}/>} />
         <Route path="todo" element={<ToDo popUpMessage={popUpMessage} showMessage={showMessage} data={data} handleRemove={handleRemove} handleDone={handleDone} />} />
-        <Route path="completed" element={<Completed completedTasks={completedTasks} favorite={favorite} handleFav={handleFav}/>} />
+        <Route path="completed" element={<Completed completedTasks={completedTasks} handleFave={handleFave} />} />
         <Route path="details/:taskId" element={<Details data={data} recentData={recentData} />} />
         <Route path='*' element={<Error />} />
       </Route> 

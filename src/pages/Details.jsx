@@ -10,7 +10,7 @@ const Details = ({ data, recentData }) => {
         return (
         <> 
         
-            <div key={taskId} className="todo-item">
+            <div key={taskId} className="todo-item ">
                 <h1>Task Details</h1><br></br>
                 <div className='wrapper'>
 
