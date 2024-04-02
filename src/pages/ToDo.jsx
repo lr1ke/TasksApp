@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { faHeart, faCheck, faHeartBroken, faRotateRight, faInfoCircle, faEllipsisH, faTimes, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faEllipsisH, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const ToDo = ({ data, handleRemove, handleDone, showMessage, popUpMessage }) => {
     return (

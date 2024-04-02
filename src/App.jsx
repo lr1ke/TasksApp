@@ -5,7 +5,6 @@ import './App.css'
 import { Routes, Route, useParams, Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 import Home from './pages/Home'
 import ToDo from './pages/ToDo' 
 import Completed from './pages/Completed'
@@ -13,16 +12,11 @@ import Details from './pages/Details'
 import Error from './pages/Error'
 import SharedLayout from './pages/SharedLayout'
 
-
 function App() {
-  const [count, setCount] = useState(0)
   const [data, setData] = useState([]);
   const [recentData, setRecentData] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
-  // const [favorite, setFavorite] = useState(false); 
   const [showMessage, setShowMessage] = useState(false);
-
-
 
 
   // Function to fetch recent data from the bored API
@@ -83,8 +77,6 @@ function App() {
   const handleRemove = (taskId) => { 
     setData(data.filter((task) => task.key !== taskId));
   }
-
-
 
   const handleFave = (taskId) => {
     setCompletedTasks(prevTasks => {

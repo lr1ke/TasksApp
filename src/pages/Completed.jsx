@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faHeartBroken, faRotateRight, faInfoCircle, faEllipsisH, faTimes, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
 
 const Completed = ({ completedTasks, handleFave }) => {
     return (
         <> 
-        
-        
-      <h1>Completed Tasks</h1>
+              <h1>Completed Tasks</h1>
       {completedTasks.length === 0 && <p>Empty list</p>}
 
         {completedTasks.map((item) => {
@@ -23,7 +21,6 @@ const Completed = ({ completedTasks, handleFave }) => {
         })}
         <br></br>
        <button><Link to="/todo">back</Link></button>
-    
         </>
     )
 }
