@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './pages/Home'
@@ -102,6 +102,7 @@ function App() {
   
   return (
     <>
+    <HashRouter>
     <Routes>
       <Route path="/" element={<SharedLayout />} >
         <Route index element={<Home popUpMessage={popUpMessage} showMessage={showMessage} recentData={recentData} handleLike={handleLike} fetchRecentData={fetchRecentData}/>} />
@@ -111,6 +112,7 @@ function App() {
         <Route path='*' element={<Error />} />
       </Route> 
     </Routes>
+    </HashRouter>    
     </>
   )
 }
