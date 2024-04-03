@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
-import { Routes, Route, useParams, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './pages/Home'
@@ -66,7 +66,7 @@ function App() {
             return updatedTask;
       }
       return task;
-    }).filter(task => !task.status));
+    }).filter(task => !task.status)); // Remove task from data array if status is true
   };
 
   const addToCompleted = (item) => {
@@ -92,7 +92,6 @@ function App() {
     });
   }
   
-
   const popUpMessage = ({ message }) => {
     return (
         <div className="popup-message">
@@ -100,7 +99,6 @@ function App() {
         </div>
     );
   };
-  
   
   return (
     <>

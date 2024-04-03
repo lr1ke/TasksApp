@@ -6,8 +6,8 @@ import { faCheck, faEllipsisH, faTrashAlt } from '@fortawesome/free-solid-svg-ic
 const ToDo = ({ data, handleRemove, handleDone, showMessage, popUpMessage }) => {
     return (
 <>
-        <h1>My To Do List</h1>
-        {data.length === 0 && <p className='wrapper'>Empty list</p>}
+        <h1>To Do List</h1>
+        {data.length === 0 && <p className='wrapper'>Empty List</p>}
         {data.map((item) => {
             return (
             <div key={item.key} className='todo-item' >
