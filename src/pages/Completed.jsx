@@ -5,8 +5,9 @@ import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
 const Completed = ({ completedTasks, handleFave }) => {
     return (
         <> 
-              <h1>Completed Tasks</h1>
-      {completedTasks.length === 0 && <p>Empty list</p>}
+
+        <h1 >Completed Tasks</h1>
+        {completedTasks.length === 0 && <p>Empty list</p>}
 
         {completedTasks.map((item) => {
             return (
@@ -20,7 +21,7 @@ const Completed = ({ completedTasks, handleFave }) => {
             )
         })}
         <br></br>
-       <button><Link to="/todo">back</Link></button>
+        <button><Link to="/todo">back</Link></button>
         </>
     )
 }

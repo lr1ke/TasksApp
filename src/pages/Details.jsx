@@ -23,7 +23,7 @@ const Details = ({ data, recentData }) => {
                 </ul>
                 </div>
             </div>
-            <button>{taskobj === recentData ? <Link to="/">back</Link> : <Link to="/todo">back</Link> }</button>
+            <button className="btn-home">{taskobj === recentData ? <Link to="/">back</Link> : <Link to="/todo">back</Link> }</button>
 
 
       

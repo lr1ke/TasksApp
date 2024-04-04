@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+// untit testing for react?
 import Home from './pages/Home'
 import ToDo from './pages/ToDo' 
 import Completed from './pages/Completed'
@@ -17,6 +15,7 @@ function App() {
   const [recentData, setRecentData] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
+  const [avatar, setAvatar] = useState('');
 
 
   // Function to fetch recent data from the bored API
@@ -25,8 +24,10 @@ function App() {
       const response = await fetch('https://www.boredapi.com/api/activity')
       const newData = await response.json()
       setRecentData(newData)
+      setAvatar(`https://robohash.org/${newData.activity}?set=set4&size=70x70`)
+
     } catch (error) {
-      console.error(error)
+      console.error(error) // how to handle error ? state data error set to true and display error message
     }
   }
 
@@ -105,7 +106,7 @@ function App() {
     <HashRouter>
     <Routes>
       <Route path="/" element={<SharedLayout />} >
-        <Route index element={<Home popUpMessage={popUpMessage} showMessage={showMessage} recentData={recentData} handleLike={handleLike} fetchRecentData={fetchRecentData}/>} />
+        <Route index element={<Home avatar={avatar} popUpMessage={popUpMessage} showMessage={showMessage} recentData={recentData} handleLike={handleLike} fetchRecentData={fetchRecentData}/>} />
         <Route path="todo" element={<ToDo popUpMessage={popUpMessage} showMessage={showMessage} data={data} handleRemove={handleRemove} handleDone={handleDone} />} />
         <Route path="completed" element={<Completed completedTasks={completedTasks} handleFave={handleFave} />} />
         <Route path="details/:taskId" element={<Details data={data} recentData={recentData} />} />
