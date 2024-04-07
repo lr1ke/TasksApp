@@ -30,6 +30,7 @@ a:hover {
   display: flex;
   place-items: center;
   flex-direction: column;
+
   }
 
   .wrapper {
@@ -48,14 +49,6 @@ body {
   padding-bottom: 3.75em;
 }
 
-.overlay-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; 
-  height: auto; 
-  background-size: cover; 
-}
 
 
 h1 {
@@ -101,10 +94,6 @@ button:focus-visible {
 }
 
 .popup-message {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: rgba(255,249,230, 0.6);
   border: 1px solid rgba(204, 204, 204); 
   padding: 1.25em;
@@ -112,11 +101,18 @@ button:focus-visible {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
+.popup-message-alt {
+  position:fixed;
+  top: 5%; 
+  left: 50%;
+}
+
+
 @media (max-width: 600px) { /* Add a media query for smaller screens */
   .popup-message {
     top: 50%; /* Adjust the position on smaller screens */
-    left: 50%; /* Adjust the position on smaller screens */
-    padding: 1em; /* Adjust the padding on smaller screens */
+    left: 50%; 
+    padding: 1em; 
   }
 }
 
@@ -147,26 +143,14 @@ button:focus-visible {
 
 @media (max-width: 600px) {
   .navbar {
-  /* flex-direction: column; */
   position: fixed;
   top: 0;
   width: 80%;
   display: flex;
-  /* justify-content: space-around; */
   padding: 20px;
 }}
 
 
-/* .btn-home {
-  position: fixed;
-  bottom: 3.0em;
-  left: 50%;
-  transform: translateX(-50%)
-} */
 
 
-  /* .header {
-    display: flex;
-    align-items: center; /* Optional: Aligns items vertically in the center */
-    /* gap: 10px; Optional: Adds some space between the h6 and the image */
-   */
+

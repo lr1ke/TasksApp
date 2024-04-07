@@ -24,9 +24,11 @@ const ToDo = ({ data, handleRemove, handleDone, showMessage, popUpMessage, recen
             </div> 
              </div>
             )
-        })}
-        {showMessage && popUpMessage({ message: 'Moved to Completed' })}
-</>
+        })}<div className="popup-message-alt">
+        {showMessage && 
+        popUpMessage({ message: 'Moved to Completed' })}
+        </div>
+</>     
     )
 }
 

@@ -24,6 +24,7 @@ const Home = ({ showMessage, popUpMessage, recentData, handleLike, fetchRecentDa
           </div>
           <br></br>
          {showMessage && popUpMessage({ message: 'Moved to ToDo' })}
+        
         </>
     )
 }

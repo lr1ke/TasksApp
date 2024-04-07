@@ -15,7 +15,6 @@ function App() {
   const [recentData, setRecentData] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
-  // const [avatar, setAvatar] = useState('');
 
 
   // Function to fetch recent data from the bored API
@@ -101,6 +100,8 @@ function App() {
         </div>
     );
   };
+
+
   
   return (
     <>
