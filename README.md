@@ -19,7 +19,7 @@ Never Bored is a web application designed to help users find interesting activit
 
 ## Deployment
 
-The application is deployed on GitHub Pages. You can visit it [here](link-to-your-github-pages-site).
+The application is deployed on GitHub Pages. You can visit it [here](https://lr1ke.github.io/TasksApp/#/).
 
 ## Technologies Used
 
