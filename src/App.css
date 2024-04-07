@@ -5,18 +5,23 @@
   text-align: center;
 }
 
-.logo, .logo-alt {
-  /* height: 6em; */
-  /* padding: 1.5em; */
+.logo, .logo-alt  {
+  height: 7em; 
+   /* padding: 1.5em; */
+  /* height: auto; */
   will-change: filter;
   transition: filter 300ms;
+  margin-bottom: 2em;
 }
-/* .logo:hover, .logo-alt:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+@media (max-widht: 600px) {
+  .logo, .logo-alt {
+    height: 4em;
+    /* padding: 1em; */
+  }
 }
-.logo.react:hover, .logo-alt.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-} */
+
+
 
 @keyframes logo-spin {
   from {
@@ -55,4 +60,8 @@
   align-items: center;
 }
 
-
+.avatar {
+  border-radius: 50%; /* Make the image round */
+  width: 120px; /* Adjust the width of the image */
+  height: 120px; /* Adjust the height of the image */
+}

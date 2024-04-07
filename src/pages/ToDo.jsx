@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { faCheck, faEllipsisH, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-const ToDo = ({ data, handleRemove, handleDone, showMessage, popUpMessage }) => {
+const ToDo = ({ data, handleRemove, handleDone, showMessage, popUpMessage, recentData }) => {
     return (
 <>
+<br></br>
         <h1>To Do List</h1>
+        <img src={`https://robohash.org/${recentData.activity}${Date.now()}?set=set2&size=100x100`} className="logo-alt avatar" alt="Robohash" /> 
+
         {data.length === 0 && <p className='wrapper'>Empty List</p>}
         {data.map((item) => {
             return (
