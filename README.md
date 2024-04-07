@@ -1,4 +1,4 @@
-# TaskManager
+# Never Bored
 
 Never Bored is a web application designed to help users find interesting activities to do when they're bored. It fetches data from the Bored API and presents a variety of activities to the user.
 
